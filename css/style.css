@@ -157,7 +157,7 @@ legend .choix { font-weight: 600; color: var(--rose-fonce); margin-left: 6px; }
 /* Catherine */
 .citation { font-family: var(--police-titre); font-style: italic; font-size: clamp(1.3rem, 2.6vw, 1.8rem); line-height: 1.4; max-width: 30ch; margin: 24px auto 0; color: var(--vert); text-align: center; }
 .chat { display: grid; grid-template-columns: 150px 1fr; gap: 24px; align-items: center; background: var(--blanc); border: 1px solid var(--ligne); border-radius: var(--rayon); padding: 20px; margin-top: 32px; }
-.chat img { border-radius: 50%; aspect-ratio: 1; object-fit: cover; width: 150px; }
+.chat img { border-radius: 18px; aspect-ratio: 640 / 993; object-fit: cover; width: 150px; height: auto; box-shadow: 0 6px 14px rgba(94, 60, 45, .15); }
 .chat p { margin: 0; }
 
 /* Pied de page */
@@ -192,6 +192,7 @@ legend .choix { font-weight: 600; color: var(--rose-fonce); margin-left: 6px; }
   .nav a { padding: 12px 14px; }
   .etapes { grid-template-columns: 1fr; }
   .chat { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .chat img { width: min(230px, 62vw); }
   .liste-detail li { flex-direction: column; gap: 2px; }
   .miniatures { grid-template-columns: repeat(5, 1fr); gap: 6px; }
 }
@@ -388,3 +389,27 @@ legend .choix { font-weight: 600; color: var(--rose-fonce); margin-left: 6px; }
 @font-face { font-family: "Fraunces"; font-style: italic; font-weight: 100 900; font-display: swap; src: url("../fonts/fraunces-latin-opsz-italic.woff2") format("woff2"); }
 @font-face { font-family: "Nunito"; font-style: normal; font-weight: 200 1000; font-display: swap; src: url("../fonts/nunito-latin-wght-normal.woff2") format("woff2"); }
 @font-face { font-family: "Caveat"; font-style: normal; font-weight: 600; font-display: swap; src: url("../fonts/caveat-latin-600-normal.woff2") format("woff2"); }
+
+/* ---------- Accord aux conditions ---------- */
+.accord { margin: 14px 0 6px; }
+.case { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; line-height: 1.45; }
+.case input { width: 22px; height: 22px; margin-top: 2px; flex: none; accent-color: var(--vert); }
+.case input[aria-invalid="true"] { outline: 2px solid #b3261e; outline-offset: 2px; }
+body[data-page="paiement"]:not(.accord-ok) .bouton.paypal { opacity: .6; }
+
+/* ---------- Avis clients ---------- */
+.avis-section { background: var(--creme-2); }
+.avis-zone { max-width: 760px; margin: 22px auto 0; }
+.avis { display: grid; grid-template-columns: 120px 1fr; gap: 22px; align-items: center; background: var(--blanc); border: 1px solid var(--ligne); border-radius: var(--rayon); padding: 22px 26px; box-shadow: 0 6px 18px rgba(94, 60, 45, .08); }
+.avis-photo { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 4px var(--rose); }
+.avis figure { margin: 0; }
+.avis blockquote { margin: 0 0 10px; font-family: var(--police-titre); font-style: italic; font-size: 1.15rem; line-height: 1.5; }
+.avis blockquote p { margin: 0; }
+.avis figcaption { color: var(--encre-douce); font-size: .95rem; }
+.avis figcaption strong { color: var(--rose-fonce); }
+.avis-exemple { max-width: none; background: #fff3d6; border: 1px dashed #d9b25a; border-radius: 10px; padding: 6px 12px; font-size: .85rem; font-weight: 700; margin: 0 0 12px; text-align: center; }
+.avis-zone.compact { margin: 18px 0; }
+.avis.compact { grid-template-columns: 64px 1fr; gap: 14px; padding: 14px 16px; box-shadow: none; }
+.avis.compact .avis-photo { width: 64px; height: 64px; box-shadow: 0 0 0 3px var(--rose); }
+.avis.compact blockquote { font-size: .98rem; margin-bottom: 4px; }
+@media (max-width: 560px) { .avis { grid-template-columns: minmax(0, 1fr); justify-items: center; text-align: center; } .avis.compact { grid-template-columns: 56px 1fr; text-align: left; justify-items: stretch; } }

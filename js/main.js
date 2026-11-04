@@ -20,7 +20,7 @@
     var a = e.target.closest ? e.target.closest("a[href]") : null;
     if (!a || a.target === "_blank") { return; }
     var h = a.getAttribute("href") || "";
-    if (/^(index|tulipe|marque-page|catherine|commander|panier|livraison|paiement|confirmation|mentions)\.html/.test(h)) { enHaut(); }
+    if (/^(index|tulipe|marque-page|catherine|commander|panier|livraison|paiement|confirmation|mentions|confidentialite)\.html/.test(h)) { enHaut(); }
   });
 
   /* ---------- Menu mobile ---------- */

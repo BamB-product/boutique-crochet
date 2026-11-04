@@ -89,6 +89,7 @@
     lignes.push("", "Client : " + l.prenom + " " + l.nom, "E-mail : " + l.email);
     if (l.tel) { lignes.push("Téléphone : " + l.tel); }
     if (o.note) { lignes.push("", "Précisions : " + o.note); }
+    if (o.accord) { lignes.push("", "Conditions de commande et confidentialité acceptées le " + o.accord); }
     return lignes.join("\n");
   }
   function envoyer(o) {
@@ -221,15 +222,31 @@
 
     var commande = function (statut) {
       return { ref: ref, statut: statut, articles: liste, sous: t.sous, remise: t.remise, frais: t.frais, total: t.total,
-        mode: liv.mode, livraison: liv, note: note(), paypal: !!lienPaypal(t.total), date: new Date().toISOString(), envoye: false };
+        mode: liv.mode, livraison: liv, note: note(), accord: accordDate, paypal: !!lienPaypal(t.total), date: new Date().toISOString(), envoye: false };
     };
     var url = lienPaypal(t.total);
     var retour = $("retour-paiement");
     var termine = $("termine");
     var enCours = false;
+    var accordDate = "";
+    var caseAccord = $("accord-conditions"), errAccord = $("err-accord");
+    var controleAccord = function () {
+      if (caseAccord.checked) {
+        errAccord.textContent = ""; caseAccord.removeAttribute("aria-invalid");
+        if (!accordDate) { accordDate = new Date().toLocaleString("fr-FR"); }
+        return true;
+      }
+      errAccord.textContent = "Cochez la case pour continuer vers le paiement.";
+      caseAccord.setAttribute("aria-invalid", "true"); caseAccord.focus();
+      return false;
+    };
+    caseAccord.addEventListener("change", function () {
+      if (caseAccord.checked) { controleAccord(); } else { accordDate = ""; }
+      document.body.classList.toggle("accord-ok", caseAccord.checked);
+    });
 
     var finaliser = function (statut) {
-      if (enCours) { return; }
+      if (enCours || !controleAccord()) { return; }
       enCours = true;
       var b = url ? termine : $("envoyer-sans-paypal");
       b.disabled = true; b.textContent = "Enregistrement…";
@@ -249,7 +266,8 @@
       var lp = $("lien-paypal");
       lp.href = url;
       var prevenu = false;
-      lp.addEventListener("click", function () {
+      lp.addEventListener("click", function (e) {
+        if (!controleAccord()) { e.preventDefault(); return; }
         if (prevenu || !C.formEndpoint) { return; }
         prevenu = true;
         envoyer(commande("en attente de paiement PayPal"));
