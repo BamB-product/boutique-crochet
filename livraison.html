@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Livraison | Les Mailles de Catherine</title>
+<meta name="description" content="Choisissez l'expédition ou le retrait au marché de Lisieux.">
+<meta property="og:title" content="Livraison | Les Mailles de Catherine">
+<meta property="og:description" content="Choisissez l'expédition ou le retrait au marché de Lisieux.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://www.lesmaillesdecatherine.fr/img/og/hero-tulipes.jpg">
+<meta property="og:url" content="https://www.lesmaillesdecatherine.fr/livraison.html">
+<meta property="og:site_name" content="Les Mailles de Catherine">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/nunito-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/fraunces-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body data-tunnel data-page="livraison">
+<header class="entete"><div class="wrap">
+<a class="logo" href="index.html" aria-label="Les Mailles de Catherine, accueil"><strong>Les Mailles de Catherine</strong><span>Créations au crochet faites main</span></a>
+<div class="entete-actions"><a class="panier-mobile" href="panier.html" aria-label="Panier"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3L5 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="compteur vide" aria-label="0 article dans le panier">0</span></a>
+<button class="menu-bouton" id="menu-bouton" aria-expanded="false" aria-controls="nav">Menu</button></div>
+<nav class="nav" id="nav" aria-label="Navigation principale"><a href="index.html">Accueil</a><a href="tulipe.html">Tulipes</a><a href="marque-page.html">Marque-pages</a><a href="catherine.html">Catherine</a><a class="bouton-nav" href="panier.html">Panier <span class="compteur vide" aria-label="0 article dans le panier">0</span></a></nav>
+</div></header>
+<main>
+
+<section class="section"><div class="wrap">
+<ol class="etapes-tunnel" aria-label="Étapes de la commande"><li class="fait"><span class="num">1</span><span class="nom">Panier</span></li><li aria-current="step"><span class="num">2</span><span class="nom">Livraison</span></li><li><span class="num">3</span><span class="nom">Paiement</span></li><li><span class="num">4</span><span class="nom">Confirmation</span></li></ol>
+<h1>Livraison</h1>
+<noscript><p class="avertissement">Cette étape a besoin de JavaScript. Écrivez-nous à <a href="mailto:mailles-de-catherine@gmail.com">mailles-de-catherine@gmail.com</a> pour commander.</p></noscript>
+<div class="panier-grille">
+<form id="form-livraison" novalidate>
+<fieldset class="modes"><legend>Comment souhaitez-vous recevoir votre commande ?</legend>
+<label class="mode"><input type="radio" name="mode" value="expedition" checked><span class="mode-carte"><strong>Expédition à domicile</strong><span>5 € de frais de port par commande · France métropolitaine</span></span></label>
+<label class="mode"><input type="radio" name="mode" value="retrait"><span class="mode-carte"><strong>Retrait au marché de Lisieux</strong><span>Le samedi matin, de 8h à 13h · gratuit</span></span></label>
+</fieldset>
+<div id="bloc-retrait" hidden>
+<div class="champ"><label for="samedi">Quel samedi passerez-vous ?</label>
+<select id="samedi" name="samedi"></select><p class="erreur" id="err-samedi" role="alert"></p>
+<p class="note">Catherine vous attend sur son stand. Les créations sont crochetées à la commande : la première date proposée laisse le temps de les réaliser.</p></div>
+</div>
+<fieldset><legend>Vos coordonnées</legend>
+<div class="duo-champs"><div class="champ"><label for="prenom">Prénom</label><input id="prenom" name="prenom" type="text" required autocomplete="given-name" ><p class="erreur" id="err-prenom" role="alert"></p></div><div class="champ"><label for="nom">Nom</label><input id="nom" name="nom" type="text" required autocomplete="family-name" ><p class="erreur" id="err-nom" role="alert"></p></div></div>
+<div class="champ"><label for="email">Adresse e-mail</label><input id="email" name="email" type="email" required autocomplete="email" ><p class="erreur" id="err-email" role="alert"></p></div>
+<div class="champ"><label for="tel">Téléphone <span class="facultatif">(facultatif)</span></label><input id="tel" name="tel" type="tel" autocomplete="tel" ><p class="erreur" id="err-tel" role="alert"></p></div>
+</fieldset>
+<fieldset id="bloc-adresse"><legend>Adresse de livraison</legend>
+<div class="champ"><label for="adresse">Numéro et rue</label><input id="adresse" name="adresse" type="text" required autocomplete="address-line1" ><p class="erreur" id="err-adresse" role="alert"></p></div>
+<div class="champ"><label for="complement">Complément d'adresse <span class="facultatif">(facultatif)</span></label><input id="complement" name="complement" type="text" autocomplete="address-line2" ><p class="erreur" id="err-complement" role="alert"></p></div>
+<div class="duo-champs"><div class="champ"><label for="cp">Code postal</label><input id="cp" name="cp" type="text" required autocomplete="postal-code" inputmode="numeric" maxlength="5"><p class="erreur" id="err-cp" role="alert"></p></div><div class="champ"><label for="ville">Ville</label><input id="ville" name="ville" type="text" required autocomplete="address-level2" ><p class="erreur" id="err-ville" role="alert"></p></div></div>
+<p class="note">Pays : France métropolitaine (Corse comprise). Pour une autre destination, écrivez à <a href="mailto:mailles-de-catherine@gmail.com">mailles-de-catherine@gmail.com</a>.</p>
+</fieldset>
+<div class="rangee"><a class="bouton clair" href="panier.html">Retour au panier</a><button type="submit" class="bouton">Continuer vers le paiement</button></div>
+</form>
+<aside class="recap" aria-label="Récapitulatif de la commande">
+<h2>Votre commande</h2>
+<ul class="recap-articles" id="recap-articles"></ul>
+<dl class="recap-lignes"><div><dt>Articles</dt><dd id="r-sous-total">0 €</dd></div>
+<div class="recap-remise" id="r-ligne-remise" hidden><dt>Code <span id="r-nom-code"></span> (−5 %)</dt><dd id="r-remise">0 €</dd></div>
+<div><dt id="r-lib-frais">Livraison</dt><dd id="r-frais">à choisir</dd></div>
+<div class="recap-total"><dt>Total à payer</dt><dd id="r-total">0 €</dd></div></dl>
+</aside>
+</div>
+</div></section>
+
+</main>
+<footer class="pied"><div class="wrap"><div class="grille">
+<div><a class="logo" href="index.html"><strong>Les Mailles de Catherine</strong><span>Créations au crochet faites main</span></a>
+<p style="margin-top:12px">Chaque pièce est crochetée à la main, avec du fil de coton, une maille après l'autre.</p></div>
+<div><h3>Le site</h3><ul><li><a href="tulipe.html">Tulipes en pot</a></li><li><a href="marque-page.html">Marque-pages</a></li><li><a href="catherine.html">Catherine</a></li><li><a href="commander.html">Comment commander</a></li></ul></div>
+<div><h3>Une question ?</h3><ul><li>Écrivez-nous :</li><li><a href="mailto:mailles-de-catherine@gmail.com">mailles-de-catherine@gmail.com</a></li><li><a href="mentions.html">Mentions légales et conditions</a></li></ul></div>
+</div><small>© 2026 Les Mailles de Catherine. Tous droits réservés.</small></div></footer>
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>

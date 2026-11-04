@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Votre panier | Les Mailles de Catherine</title>
+<meta name="description" content="Votre panier : ajoutez, retirez, modifiez les quantités, puis passez commande et payez avec PayPal.">
+<meta property="og:title" content="Votre panier | Les Mailles de Catherine">
+<meta property="og:description" content="Votre panier : ajoutez, retirez, modifiez les quantités, puis passez commande et payez avec PayPal.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://www.lesmaillesdecatherine.fr/img/og/hero-tulipes.jpg">
+<meta property="og:url" content="https://www.lesmaillesdecatherine.fr/panier.html">
+<meta property="og:site_name" content="Les Mailles de Catherine">
+<meta name="twitter:card" content="summary_large_image">
+
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/nunito-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/fraunces-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<header class="entete"><div class="wrap">
+<a class="logo" href="index.html" aria-label="Les Mailles de Catherine, accueil"><strong>Les Mailles de Catherine</strong><span>Créations au crochet faites main</span></a>
+<div class="entete-actions"><a class="panier-mobile" href="panier.html" aria-label="Panier"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3L5 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="compteur vide" aria-label="0 article dans le panier">0</span></a>
+<button class="menu-bouton" id="menu-bouton" aria-expanded="false" aria-controls="nav">Menu</button></div>
+<nav class="nav" id="nav" aria-label="Navigation principale"><a href="index.html">Accueil</a><a href="tulipe.html">Tulipes</a><a href="marque-page.html">Marque-pages</a><a href="catherine.html">Catherine</a><a class="bouton-nav" href="panier.html" aria-current="page">Panier <span class="compteur vide" aria-label="0 article dans le panier">0</span></a></nav>
+</div></header>
+<main>
+
+<section class="section"><div class="wrap">
+<span class="main">presque fini</span><h1>Votre panier</h1>
+<noscript><p class="avertissement">Le panier a besoin de JavaScript. Pour commander sans, écrivez à <a href="mailto:mailles-de-catherine@gmail.com">mailles-de-catherine@gmail.com</a>.</p></noscript>
+<div id="panier-vide" hidden>
+<p>Votre panier est vide pour le moment.</p>
+<div class="rangee"><a class="bouton" href="tulipe.html">Choisir une tulipe</a><a class="bouton clair" href="marque-page.html">Choisir un marque-page</a></div>
+</div>
+<div id="panier-contenu" class="panier-grille" hidden>
+<div><ul id="lignes" class="lignes"></ul>
+<div class="rangee"><a class="bouton clair petit" href="tulipe.html">Ajouter une tulipe</a><a class="bouton clair petit" href="marque-page.html">Ajouter un marque-page</a><button type="button" class="bouton clair petit" id="vider">Vider le panier</button></div></div>
+<aside class="recap" aria-label="Récapitulatif de la commande">
+<h2>Récapitulatif</h2>
+<dl class="recap-lignes"><div><dt>Sous-total</dt><dd id="sous-total">0 €</dd></div>
+<div class="recap-remise" id="ligne-remise" hidden><dt>Code <span id="nom-code"></span> (−5 %)</dt><dd id="montant-remise">0 €</dd></div>
+<div><dt>Frais d'envoi</dt><dd>5 € (offerts en retrait au marché)</dd></div>
+<div class="recap-total"><dt>Total articles</dt><dd id="total-panier">0 €</dd></div></dl>
+<form class="promo" id="form-promo" novalidate>
+<label for="code-promo">Code promo</label>
+<div class="promo-champ"><input id="code-promo" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Votre code"><button type="submit" class="bouton petit">Appliquer</button></div>
+<p class="promo-retour" id="promo-retour" role="status" aria-live="polite"></p>
+<button type="button" class="lien-retirer" id="retirer-code" hidden>Retirer le code</button>
+</form>
+<label for="note-commande" class="note" style="display:block;font-weight:700;color:var(--encre)">Précisions pour Catherine (facultatif)</label>
+<textarea id="note-commande" class="apercu" style="min-height:90px" placeholder="Une couleur particulière, un cadeau, une date souhaitée…"></textarea>
+<a class="bouton" id="passer-commande" href="livraison.html" style="width:100%">Passer commande</a>
+<p class="note">Étape suivante : votre livraison, puis le paiement avec PayPal. Rien n'est débité avant la dernière étape.</p>
+</aside>
+</div>
+</div></section>
+
+</main>
+<footer class="pied"><div class="wrap"><div class="grille">
+<div><a class="logo" href="index.html"><strong>Les Mailles de Catherine</strong><span>Créations au crochet faites main</span></a>
+<p style="margin-top:12px">Chaque pièce est crochetée à la main, avec du fil de coton, une maille après l'autre.</p></div>
+<div><h3>Le site</h3><ul><li><a href="tulipe.html">Tulipes en pot</a></li><li><a href="marque-page.html">Marque-pages</a></li><li><a href="catherine.html">Catherine</a></li><li><a href="commander.html">Comment commander</a></li></ul></div>
+<div><h3>Une question ?</h3><ul><li>Écrivez-nous :</li><li><a href="mailto:mailles-de-catherine@gmail.com">mailles-de-catherine@gmail.com</a></li><li><a href="mentions.html">Mentions légales et conditions</a></li></ul></div>
+</div><small>© 2026 Les Mailles de Catherine. Tous droits réservés.</small></div></footer>
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
